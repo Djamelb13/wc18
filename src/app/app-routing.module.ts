@@ -6,6 +6,7 @@ import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupComponent } from './group/group.component';
 
+
 const routes: Routes = [
   {path: '', component:LoginComponent},
   {path: 'home', component:HomeComponent},
