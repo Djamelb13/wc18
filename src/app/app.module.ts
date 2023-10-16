@@ -1,6 +1,6 @@
+// app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +12,8 @@ import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { InfoUserComponent } from './profile/info-user/info-user.component';
 import { PassionComponent } from './profile/passion/passion.component';
+import { CoreModule } from './core/core.module';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +26,14 @@ import { PassionComponent } from './profile/passion/passion.component';
     TeamComponent,
     ProfileComponent,
     InfoUserComponent,
-    PassionComponent
+    PassionComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,25 +1,26 @@
 .form-login {
-  display:flex;
-  flex-direction: column;
-  padding: 10px;
-  background-color: rgba(128, 128, 128, 0.295);
-  height:250px;
-  margin-bottom: 200px;
-  border-radius: 50px;
-  width: 300px;
-  align-items: center;
+  background-color: rgba(128, 128, 128, 0.657);
+  display: flex;
   justify-content: center;
+  align-items: center;
+  height: 30vh;
 }
 
-.form-login input {
-  margin: 5px 0;
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  width: 500px; 
+  padding: 16px; 
 }
 
-input, button {
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  border-radius: 20px;
-  padding: 5px;
-  border: dashed 1px;
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 16px; 
+}
+
+
+.form-content button {
+  margin-top: 16px;
 }
