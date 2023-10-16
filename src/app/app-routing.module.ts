@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupComponent } from './group/group.component';
+import { ListeDePaysComponent } from './liste-de-pays/liste-de-pays.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,9 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'team', component:TeamComponent},
   {path: 'profile', component:ProfileComponent},
-  {path: 'group', component:GroupComponent}
+  {path: 'group', component:GroupComponent},
+  { path: 'liste-de-pays/:groupe', component: ListeDePaysComponent }
+
 ];
 
 @NgModule({

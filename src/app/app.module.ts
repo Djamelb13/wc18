@@ -12,6 +12,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { InfoUserComponent } from './profile/info-user/info-user.component';
 import { PassionComponent } from './profile/passion/passion.component';
 import { CoreModule } from './core/core.module';
+import { ListeDePaysComponent } from './liste-de-pays/liste-de-pays.component';
+import { DataService } from './data.service';
 
 
 @NgModule({
@@ -26,12 +28,13 @@ import { CoreModule } from './core/core.module';
     ProfileComponent,
     InfoUserComponent,
     PassionComponent,
+    ListeDePaysComponent,
   ],
   imports: [
     AppRoutingModule,
     CoreModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

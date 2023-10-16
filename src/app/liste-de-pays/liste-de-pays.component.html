@@ -1,0 +1,17 @@
+<!-- liste-de-pays.component.html -->
+<div>
+    <h1>Liste de pays du groupe {{ groupe }}</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom du pays</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pays of paysDuGroupe">
+          <td>{{ pays }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
