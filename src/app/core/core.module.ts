@@ -7,6 +7,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   imports: [
@@ -17,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule,
   ],
   exports: [
     MatCardModule,
@@ -27,7 +30,9 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule,
+
   ],
 })
 export class CoreModule {}

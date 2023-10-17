@@ -1,6 +1,7 @@
-<div class="dropdown-container">
-  <mat-select  [(ngModel)]="selectedGroupe" (selectionChange)="onGroupSelected($event)">
-    <mat-option *ngFor="let groupe of groupesDePays" [value]="groupe.nom">{{ groupe.nom }}</mat-option>
-  </mat-select>
-</div>
+<button class="test" mat-fab [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <ng-container *ngFor="let groupe of groupesDePays">
+    <button mat-menu-item (click)="onGroupSelected(groupe.nom)">{{ groupe.nom }}</button>
+  </ng-container>
+</mat-menu>
 

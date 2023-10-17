@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-header',
@@ -8,35 +10,18 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   @Input() isHome: boolean;
-  selectedGroupe: any; 
-  
+  selectedGroupe: any;
+  @ViewChild(MatMenuTrigger) trigger?: MatMenuTrigger;
 
-  constructor(private router: Router) { // Ajoutez le service Router ici
+  constructor(private router: Router, private dataService: DataService) {
     this.isHome = false;
   }
-  
 
-  groupesDePays = [
-    {
-      nom: 'Groupe A',
-      pays: ['France', 'Belgique', 'Espagne', 'Italie']
-    },
-    {
-      nom: 'Groupe B',
-      pays: ['Allemagne', 'Pays-Bas', 'Portugal', 'Maroc']
-    },
-    {
-      nom: 'Groupe C',
-      pays: ['Angleterre', 'Écosse', 'Irlande']
-    }
-  ];
-  onGroupSelected(event: { value: any; }) {
-    const groupeSelectionne = event.value;
+  // Utilize the DataService method to get groupesDePays
+  groupesDePays = this.dataService.getGroupesDePays();
+
+  onGroupSelected(selectedValue: string) {
+    const groupeSelectionne = selectedValue;
     this.router.navigate(['/group', groupeSelectionne]);
   }
-  
-  
-  
-  
-    
 }
