@@ -31,6 +31,7 @@ export class GroupComponent implements OnInit {
   }
   onPaysSelected(pays: string) {
     this.router.navigate(['/joueurs', pays]);
+    
   }
   
 }

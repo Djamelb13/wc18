@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  titreDuGroupeOuPays!: string; 
   Bienvenue!: string;
   @Input() isHome: boolean;
   selectedGroupe: any;
@@ -24,5 +25,6 @@ export class HeaderComponent {
   onGroupSelected(selectedValue: string) {
     const groupeSelectionne = selectedValue;
     this.router.navigate(['/group', groupeSelectionne]);
+    this.titreDuGroupeOuPays = groupeSelectionne; // Utilisez groupeSelectionne ici
   }
 }

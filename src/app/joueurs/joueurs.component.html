@@ -1,20 +1,24 @@
 <app-header></app-header>
-<mat-table [dataSource]="joueurs">
-  <ng-container matColumnDef="nomPrenom">
-    <mat-header-cell *matHeaderCellDef>Joueurs de {{ pays }}</mat-header-cell>
-    <mat-cell *matCellDef="let joueur">{{ joueur.nom }} {{ joueur.prenom }}</mat-cell>
-  </ng-container>
+<div class="container-player">
+<div class="group-container" fxFlex="60" fxLayoutAlign="center center">
+  <mat-table [dataSource]="joueurs">
+    <ng-container matColumnDef="nomPrenom">
+      <mat-header-cell *matHeaderCellDef>Joueurs de {{ pays }}</mat-header-cell>
+      <mat-cell *matCellDef="let joueur">{{ joueur.nom }} {{ joueur.prenom }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="poste">
-    <mat-header-cell *matHeaderCellDef>Poste</mat-header-cell>
-    <mat-cell *matCellDef="let joueur">{{ joueur.poste }}</mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="poste">
+      <mat-header-cell *matHeaderCellDef>Poste</mat-header-cell>
+      <mat-cell *matCellDef="let joueur">{{ joueur.poste }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="championnat">
-    <mat-header-cell *matHeaderCellDef>Championnat</mat-header-cell>
-    <mat-cell *matCellDef="let joueur">{{ joueur.championnat }}</mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="championnat">
+      <mat-header-cell *matHeaderCellDef>Championnat</mat-header-cell>
+      <mat-cell *matCellDef="let joueur">{{ joueur.championnat }}</mat-cell>
+    </ng-container>
 
-  <mat-header-row *matHeaderRowDef="['nomPrenom', 'poste', 'championnat']"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: ['nomPrenom', 'poste', 'championnat'];"></mat-row>
-</mat-table>
+    <mat-header-row *matHeaderRowDef="['nomPrenom', 'poste', 'championnat']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['nomPrenom', 'poste', 'championnat'];"></mat-row>
+  </mat-table>
+</div>
+</div>

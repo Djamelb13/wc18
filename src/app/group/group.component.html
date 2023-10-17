@@ -1,20 +1,24 @@
 <app-header></app-header>
-<mat-table [dataSource]="paysDuGroupe">
-  <!-- Colonne pour le nom du pays -->
-  <ng-container matColumnDef="pays">
-    <mat-header-cell *matHeaderCellDef>{{ groupe }}</mat-header-cell>
-    <mat-cell *matCellDef="let pays">{{ pays }}</mat-cell>
-  </ng-container>
+<div class="container-group">
+<div fxFlex="60" fxLayoutAlign="center center">
+  <mat-table [dataSource]="paysDuGroupe" style="max-width: 800px;">
+    <!-- Colonne pour le nom du pays -->
+    <ng-container matColumnDef="pays">
+      <mat-header-cell *matHeaderCellDef>{{ groupe }}</mat-header-cell>
+      <mat-cell *matCellDef="let pays">{{ pays }}</mat-cell>
+    </ng-container>
 
-  <!-- Colonne pour les liens vers la liste de joueurs -->
-  <ng-container matColumnDef="joueurs">
-    <mat-header-cell *matHeaderCellDef>Joueurs</mat-header-cell>
-    <mat-cell *matCellDef="let pays">
-      <a [routerLink]="['/joueurs', pays]">Voir les joueurs</a>
-    </mat-cell>
-  </ng-container>
+    <!-- Colonne pour les liens vers la liste de joueurs -->
+    <ng-container matColumnDef="joueurs">
+      <mat-header-cell *matHeaderCellDef>Joueurs</mat-header-cell>
+      <mat-cell *matCellDef="let pays">
+        <a [routerLink]="['/joueurs', pays]">Voir les joueurs</a>
+      </mat-cell>
+    </ng-container>
 
-  <!-- Définition des colonnes -->
-  <mat-header-row *matHeaderRowDef="['pays', 'joueurs']"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: ['pays', 'joueurs'];"></mat-row>
-</mat-table>
+    <!-- Définition des colonnes -->
+    <mat-header-row *matHeaderRowDef="['pays', 'joueurs']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['pays', 'joueurs'];"></mat-row>
+  </mat-table>
+</div>
+</div>
