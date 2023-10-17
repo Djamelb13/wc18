@@ -1,9 +1,6 @@
-<div class="header">
-  <div class="banner">
-    <img src="votre-image.jpg" alt="Bannière">
-  </div>
-
-  <mat-select *ngIf="isHome" (selectionChange)="onGroupSelected($event)">
+<div class="dropdown-container">
+  <mat-select  [(ngModel)]="selectedGroupe" (selectionChange)="onGroupSelected($event)">
     <mat-option *ngFor="let groupe of groupesDePays" [value]="groupe.nom">{{ groupe.nom }}</mat-option>
   </mat-select>
 </div>
+

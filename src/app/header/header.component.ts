@@ -8,10 +8,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   @Input() isHome: boolean;
+  selectedGroupe: any; 
+  
 
   constructor(private router: Router) { // Ajoutez le service Router ici
     this.isHome = false;
   }
+  
 
   groupesDePays = [
     {
