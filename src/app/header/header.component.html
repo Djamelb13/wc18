@@ -1,7 +1,18 @@
-<button class="test" mat-fab [matMenuTriggerFor]="menu">Menu</button>
+<div fxLayout="row" fxLayoutAlign = "space-around">
+
+  <button mat-fab [matMenuTriggerFor]="menu">Menu</button>
+  <mat-card fxFlex="60" fxLayoutAlign="center center">
+    <mat-card-header>
+      <mat-card-title>
+        <h1>{{Bienvenue}}</h1>
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
 <mat-menu #menu="matMenu">
   <ng-container *ngFor="let groupe of groupesDePays">
     <button mat-menu-item (click)="onGroupSelected(groupe.nom)">{{ groupe.nom }}</button>
   </ng-container>
 </mat-menu>
 
+</div>

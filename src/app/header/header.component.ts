@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  Bienvenue!: string;
   @Input() isHome: boolean;
   selectedGroupe: any;
   @ViewChild(MatMenuTrigger) trigger?: MatMenuTrigger;

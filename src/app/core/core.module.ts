@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -21,6 +21,7 @@ import {MatMenuModule} from '@angular/material/menu';
     BrowserAnimationsModule,
     FormsModule,
     MatMenuModule,
+    FlexLayoutModule
   ],
   exports: [
     MatCardModule,
@@ -32,7 +33,7 @@ import {MatMenuModule} from '@angular/material/menu';
     BrowserAnimationsModule,
     FormsModule,
     MatMenuModule,
-
+FlexLayoutModule
   ],
 })
 export class CoreModule {}

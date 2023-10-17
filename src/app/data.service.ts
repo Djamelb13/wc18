@@ -18,6 +18,29 @@ export class DataService {
       }
     ];
   }
+  getArticles() {
+    return [
+      {
+        title: "Article 1",
+        author: "Auteur 1",
+        image : "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/4e46ea37-e552-4c44-ba20-549d1b86d414/ballon-de-football-club-elite-CJW4dG.png",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        title: "Article 2",
+        author: "Auteur 2",
+        image : "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/4e46ea37-e552-4c44-ba20-549d1b86d414/ballon-de-football-club-elite-CJW4dG.png",
+
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      {
+        title: "Article 3",
+        author: "Auteur 3",
+        image : "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/4e46ea37-e552-4c44-ba20-549d1b86d414/ballon-de-football-club-elite-CJW4dG.png",
+        content: "Ceci est le contenu de l'article 3. Il peut contenir des informations intéressantes sur divers sujets."
+      }
+    ];
+  }
 
   getJoueursByPays(pays: string): any[] {
     if (pays === 'France') {
