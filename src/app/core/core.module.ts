@@ -9,6 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
 
 @NgModule({
   imports: [
@@ -21,7 +25,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     FormsModule,
     MatMenuModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     MatCardModule,
@@ -33,7 +39,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     FormsModule,
     MatMenuModule,
-FlexLayoutModule
+FlexLayoutModule,
+MatTableModule,
+MatPaginatorModule
   ],
 })
 export class CoreModule {}

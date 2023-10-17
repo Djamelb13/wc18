@@ -1,9 +1,20 @@
 <app-header></app-header>
-<h1>Joueurs de {{ pays }}</h1>
-<ul>
-  <li *ngFor="let joueur of joueurs">
-    <h3>{{ joueur.nom }} {{ joueur.prenom }}</h3>
-    <p>Poste: {{ joueur.poste }}</p>
-    <p>Championnat: {{ joueur.championnat }}</p>
-  </li>
-</ul>
+<mat-table [dataSource]="joueurs">
+  <ng-container matColumnDef="nomPrenom">
+    <mat-header-cell *matHeaderCellDef>Joueurs de {{ pays }}</mat-header-cell>
+    <mat-cell *matCellDef="let joueur">{{ joueur.nom }} {{ joueur.prenom }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="poste">
+    <mat-header-cell *matHeaderCellDef>Poste</mat-header-cell>
+    <mat-cell *matCellDef="let joueur">{{ joueur.poste }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="championnat">
+    <mat-header-cell *matHeaderCellDef>Championnat</mat-header-cell>
+    <mat-cell *matCellDef="let joueur">{{ joueur.championnat }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="['nomPrenom', 'poste', 'championnat']"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: ['nomPrenom', 'poste', 'championnat'];"></mat-row>
+</mat-table>

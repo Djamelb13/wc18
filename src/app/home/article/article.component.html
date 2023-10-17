@@ -1,8 +1,9 @@
-<div *ngFor="let article of articles" class="article" fxLayout="row">
+<div class="container">
+<div *ngFor="let article of articles" class="article" fxLayout.lt-sm="column" fxLayout.gt-sm="row">
   <mat-card class="test">
-    <div fxLayout="row"> 
-      <img src="{{ article.image }}" alt="Image de l'article" width="30%" height="100%" style="object-fit: contain;">
-      <div fxLayout="column" >
+    <div fxLayout="row" fxLayout.gt-sm="row" fxLayoutGap="10px" >
+      <img src="{{ article.image }}" alt="Image de l'article" style="max-width: 30%; max-height: 60%; object-fit: contain;">
+      <div fxLayout="column" fxLayoutAlign="start start">
         <mat-card-header>
           <mat-card-title>{{ article.title }}</mat-card-title>
         </mat-card-header>
@@ -13,4 +14,5 @@
       </div>
     </div>
   </mat-card>
+</div>
 </div>
