@@ -5,16 +5,16 @@ import { LoginComponent } from './login/login.component';
 import { TeamComponent } from './team/team.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupComponent } from './group/group.component';
-import { ListeDePaysComponent } from './liste-de-pays/liste-de-pays.component';
+import { JoueursComponent } from './joueurs/joueurs.component';
 
 
 const routes: Routes = [
-  {path: '', component:LoginComponent},
-  {path: 'home', component:HomeComponent},
-  {path: 'team', component:TeamComponent},
-  {path: 'profile', component:ProfileComponent},
-  {path: 'group', component:GroupComponent},
-  { path: 'liste-de-pays/:groupe', component: ListeDePaysComponent }
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'team', component: TeamComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'group/:groupe', component: GroupComponent },
+  { path: 'joueurs/:pays', component: JoueursComponent }
 
 ];
 

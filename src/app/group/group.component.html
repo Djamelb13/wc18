@@ -1,1 +1,9 @@
 <p>group works!</p>
+<app-header></app-header>
+<h1>{{ groupe }}</h1>
+<ul>
+  <li *ngFor="let pays of paysDuGroupe">
+    <!-- Ajoutez un lien vers la liste de joueurs du pays en utilisant le routerLink -->
+    <a [routerLink]="['/joueurs', pays]">{{ pays }}</a>
+  </li>
+</ul>

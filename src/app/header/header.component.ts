@@ -27,14 +27,13 @@ export class HeaderComponent {
       pays: ['Angleterre', 'Écosse', 'Irlande']
     }
   ];
-
   onGroupSelected(event: { value: any; }) {
     const groupeSelectionne = event.value;
-    const groupe = this.groupesDePays.find(g => g.nom === groupeSelectionne);
-  
-    if (groupe) {
-      // Rediriger l'utilisateur vers la page de liste de pays avec le groupe sélectionné
-      this.router.navigate(['/liste-de-pays', groupe.nom], { state: { pays: groupe.pays } });
-    }
+    this.router.navigate(['/group', groupeSelectionne]);
   }
+  
+  
+  
+  
+    
 }

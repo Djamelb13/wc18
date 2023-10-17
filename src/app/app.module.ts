@@ -14,6 +14,7 @@ import { PassionComponent } from './profile/passion/passion.component';
 import { CoreModule } from './core/core.module';
 import { ListeDePaysComponent } from './liste-de-pays/liste-de-pays.component';
 import { DataService } from './data.service';
+import { JoueursComponent } from './joueurs/joueurs.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { DataService } from './data.service';
     InfoUserComponent,
     PassionComponent,
     ListeDePaysComponent,
+    JoueursComponent,
   ],
   imports: [
     AppRoutingModule,

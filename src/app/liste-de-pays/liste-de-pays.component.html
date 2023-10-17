@@ -8,9 +8,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let pays of paysDuGroupe">
-          <td>{{ pays }}</td>
-        </tr>
+        <ul>
+          <li *ngFor="let pays of paysDuGroupe" (click)="onPaysSelected(pays)">{{ pays }}</li>
+        </ul>
+        
       </tbody>
     </table>
   </div>
