@@ -15,6 +15,8 @@ import { CoreModule } from './core/core.module';
 import { ListeDePaysComponent } from './liste-de-pays/liste-de-pays.component';
 import { DataService } from './data.service';
 import { JoueursComponent } from './joueurs/joueurs.component';
+import { CustomTitleStrategy } from './custom-title-strategy';
+import { TitleComponent } from './header/title/title.component';
 
 
 @NgModule({
@@ -31,12 +33,13 @@ import { JoueursComponent } from './joueurs/joueurs.component';
     PassionComponent,
     ListeDePaysComponent,
     JoueursComponent,
+    TitleComponent,
   ],
   imports: [
     AppRoutingModule,
     CoreModule
   ],
-  providers: [DataService],
+  providers: [DataService, CustomTitleStrategy],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

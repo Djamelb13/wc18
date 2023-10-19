@@ -13,7 +13,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'team', component: TeamComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'group/:groupe', component: GroupComponent },
+  {path: 'group/:groupe',
+    component: GroupComponent,
+    data: {
+      title: 'Nom du groupe', // Titre spécifique à cette route
+    },},
   { path: 'joueurs/:pays', component: JoueursComponent }
 
 ];
