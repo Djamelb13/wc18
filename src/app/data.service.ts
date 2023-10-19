@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class DataService {
+    private titreDuGroupeOuPaysSource = new BehaviorSubject<string>('');
+    titreDuGroupeOuPays$ = this.titreDuGroupeOuPaysSource.asObservable();
+  
+    updateTitreDuGroupeOuPays(titre: string) {
+      this.titreDuGroupeOuPaysSource.next(titre);
+    }
   getGroupesDePays() {
     return [
       {
