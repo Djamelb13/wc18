@@ -5,12 +5,13 @@ import { BehaviorSubject } from 'rxjs';
     providedIn: 'root'
   })
 export class DataService {
-    private titreDuGroupeOuPaysSource = new BehaviorSubject<string>('');
-    titreDuGroupeOuPays$ = this.titreDuGroupeOuPaysSource.asObservable();
-  
-    updateTitreDuGroupeOuPays(titre: string) {
-      this.titreDuGroupeOuPaysSource.next(titre);
-    }
+  private titleSubject = new BehaviorSubject<string>(''); // Initialize with an empty string
+  titreDuGroupeOuPays$ = this.titleSubject.asObservable();
+
+  // Other methods to update the title
+  updateTitreDuGroupeOuPays(newTitle: string) {
+    this.titleSubject.next(newTitle);
+  }
   getGroupesDePays() {
     return [
       {
