@@ -22,13 +22,17 @@ export class GroupComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.groupe = params['groupe'];
-
+  
+      // Add this console log to see the value of "groupe"
+      console.log('Value of "groupe":', this.groupe);
+  
       this.paysDuGroupe = this.getPaysDuGroupe(this.groupe);
-      
+  
       // Mettez à jour le titre ici en utilisant le service de titre
       this.titleService.updateTitle('Nouveau titre');
     });
   }
+  
 
   getPaysDuGroupe(groupe: string): string[] {
     const groupesDePays = this.dataService.getGroupesDePays();
