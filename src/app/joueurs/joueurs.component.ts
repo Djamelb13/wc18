@@ -1,24 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-joueurs',
   templateUrl: './joueurs.component.html',
-  styleUrls: ['./joueurs.component.scss']
+  styleUrls: ['./joueurs.component.css']
 })
 export class JoueursComponent implements OnInit {
-  pays: string = '';
-  joueurs: any[] = [];
+  joueurs: any[] = []; // Déclarez le type approprié pour vos joueurs
+  pays!: string; // Assurez-vous que "pays" est initialisé avec une valeur
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.pays = params['pays'];
-
-      // Utilisez le service de données pour obtenir les détails des joueurs du pays
-      this.joueurs = this.dataService.getJoueursByPays(this.pays);
+    this.dataService.getJoueursByPays(this.pays).subscribe((data: any[]) => {
+      this.joueurs = data;
     });
   }
 }

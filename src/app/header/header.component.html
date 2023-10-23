@@ -3,19 +3,21 @@
   <mat-card fxFlex="60" fxLayoutAlign="center center">
     <mat-card-header>
       <mat-card-title>
-        <h1>{{ titreDuGroupeOuPays }}</h1>
-        <h1>{{ title }}</h1>
+        <h1>{{ titreDuGroupeSelectionne }}</h1>
       </mat-card-title>
       
     </mat-card-header>
   </mat-card>
 
   <mat-menu #menu="matMenu">
+
 <ng-container *ngFor="let groupe of groupesDePays">
   <button mat-menu-item (click)="onGroupSelected(groupe.nom)">{{ groupe.nom }}</button>
 </ng-container>
+
 
   </mat-menu>
 
   <button mat-fab (click)="goBack()">Retour</button>
 </div>
+<h1>{{ title }}</h1>

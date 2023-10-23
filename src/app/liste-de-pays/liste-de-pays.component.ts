@@ -1,5 +1,7 @@
+// liste-de-pays.component.ts (ListeDePaysComponent)
+
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; // Importez le service Router
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -11,23 +13,17 @@ export class ListeDePaysComponent implements OnInit {
   groupe: string = '';
   paysDuGroupe: string[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {} // Injectez le service Router ici
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.groupe = params['groupe']; // Récupérez le nom du groupe depuis les paramètres de route
-      // Utilisez le nom du groupe pour obtenir les pays correspondants depuis le service
-      this.paysDuGroupe = this.getPaysDuGroupe(this.groupe);
+      this.groupe = params['groupe'];
     });
+
+    // Supprimez cet appel à la méthode getPaysDuGroupe
   }
 
   onPaysSelected(pays: string) {
-    this.router.navigate(['/joueurs', pays]);
-  }
-
-  getPaysDuGroupe(groupe: string): string[] {
-    const groupesDePays = this.dataService.getGroupesDePays();
-    const groupeSelectionne = groupesDePays.find(g => g.nom === groupe);
-    return groupeSelectionne ? groupeSelectionne.pays : [];
+    this.router.navigate(['/group', pays]); // Modifiez la route pour naviguer vers le composant GroupComponent
   }
 }

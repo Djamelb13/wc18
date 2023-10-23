@@ -1,149 +1,72 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root'
-  })
+  providedIn: 'root'
+})
 export class DataService {
-  private titleSubject = new BehaviorSubject<string>(''); // Initialize with an empty string
-  titreDuGroupeOuPays$ = this.titleSubject.asObservable();
-
-  // Other methods to update the title
-  updateTitreDuGroupeOuPays(newTitle: string) {
-    this.titleSubject.next(newTitle);
+  getData(): Observable<any> {
+    throw new Error('Method not implemented.');
   }
-  getGroupesDePays() {
-    return [
-      {
-        nom: 'Groupe A',
-        pays: ['France', 'Belgique', 'Espagne', 'Italie']
-      },
-      {
-        nom: 'Groupe B',
-        pays: ['Allemagne', 'Pays-Bas', 'Portugal', 'Maroc']
-      },
-      {
-        nom: 'Groupe C',
-        pays: ['Angleterre', 'Écosse', 'Irlande']
-      }
-    ];
-  }
-  getArticles() {
-    return [
-      {
-        title: "Article 1",
-        author: "Auteur 1",
-        image : "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/4e46ea37-e552-4c44-ba20-549d1b86d414/ballon-de-football-club-elite-CJW4dG.png",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      {
-        title: "Article 2",
-        author: "Auteur 2",
-        image : "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/4e46ea37-e552-4c44-ba20-549d1b86d414/ballon-de-football-club-elite-CJW4dG.png",
+  private jsonData: any;
 
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      },
-      {
-        title: "Article 3",
-        author: "Auteur 3",
-        image : "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,b_rgb:f5f5f5/4e46ea37-e552-4c44-ba20-549d1b86d414/ballon-de-football-club-elite-CJW4dG.png",
-        content: "Ceci est le contenu de l'article 3. Il peut contenir des informations intéressantes sur divers sujets."
-      }
-    ];
+  constructor(private http: HttpClient) {
+    // Chargez les données JSON depuis le fichier 'data-group.json' lors de l'initialisation du service
+    this.getJSONData().subscribe((data) => {
+      this.jsonData = data;
+      console.log('Données JSON chargées :', this.jsonData);
+    });
   }
 
-  getJoueursByPays(pays: string): any[] {
-    if (pays === 'France') {
-        return [
-            { nom: 'Kylian Mbappé', prenom: 'Kylian', poste: 'Attaquant', championnat: 'Ligue 1' },
-            { nom: 'Antoine Griezmann', prenom: 'Antoine', poste: 'Attaquant', championnat: 'La Liga' },
-            { nom: 'N\'Golo Kanté', prenom: 'N\'Golo', poste: 'Milieu de terrain', championnat: 'Premier League' },
-            { nom: 'Raphael Varane', prenom: 'Raphael', poste: 'Défenseur', championnat: 'Premier League' },
-            { nom: 'Hugo Lloris', prenom: 'Hugo', poste: 'Gardien de but', championnat: 'Premier League' }
-        ];
-    } else if (pays === 'Belgique') {
-        return [
-            { nom: 'Eden Hazard', prenom: 'Eden', poste: 'Attaquant', championnat: 'La Liga' },
-            { nom: 'Kevin De Bruyne', prenom: 'Kevin', poste: 'Milieu de terrain', championnat: 'Premier League' },
-            { nom: 'Thibaut Courtois', prenom: 'Thibaut', poste: 'Gardien de but', championnat: 'La Liga' },
-            { nom: 'Romelu Lukaku', prenom: 'Romelu', poste: 'Attaquant', championnat: 'Serie A' },
-            { nom: 'Axel Witsel', prenom: 'Axel', poste: 'Milieu de terrain', championnat: 'Bundesliga' }
-        ];
-    } else if (pays === 'Espagne') {
-        return [
-            { nom: 'Sergio Ramos', prenom: 'Sergio', poste: 'Défenseur', championnat: 'Ligue 1' },
-            { nom: 'Sergio Busquets', prenom: 'Sergio', poste: 'Milieu de terrain', championnat: 'La Liga' },
-            { nom: 'Gerard Piqué', prenom: 'Gerard', poste: 'Défenseur', championnat: 'La Liga' },
-            { nom: 'Jordi Alba', prenom: 'Jordi', poste: 'Défenseur', championnat: 'La Liga' },
-            { nom: 'Isco', prenom: 'Isco', poste: 'Milieu de terrain', championnat: 'Serie A' }
-        ];
-    } else if (pays === 'Italie') {
-        return [
-            { nom: 'Giorgio Chiellini', prenom: 'Giorgio', poste: 'Défenseur', championnat: 'Serie A' },
-            { nom: 'Leonardo Bonucci', prenom: 'Leonardo', poste: 'Défenseur', championnat: 'Serie A' },
-            { nom: 'Marco Verratti', prenom: 'Marco', poste: 'Milieu de terrain', championnat: 'Ligue 1' },
-            { nom: 'Ciro Immobile', prenom: 'Ciro', poste: 'Attaquant', championnat: 'Serie A' },
-            { nom: 'Gianluigi Donnarumma', prenom: 'Gianluigi', poste: 'Gardien de but', championnat: 'Serie A' }
-        ];
-    } else if (pays === 'Allemagne') {
-        return [
-            { nom: 'Toni Kroos', prenom: 'Toni', poste: 'Milieu de terrain', championnat: 'La Liga' },
-            { nom: 'Joshua Kimmich', prenom: 'Joshua', poste: 'Milieu de terrain', championnat: 'Bundesliga' },
-            { nom: 'Manuel Neuer', prenom: 'Manuel', poste: 'Gardien de but', championnat: 'Bundesliga' },
-            { nom: 'Leroy Sané', prenom: 'Leroy', poste: 'Attaquant', championnat: 'Bundesliga' },
-            { nom: 'Mats Hummels', prenom: 'Mats', poste: 'Défenseur', championnat: 'Bundesliga' }
-        ];
-    } else if (pays === 'Pays-Bas') {
-        return [
-            { nom: 'Virgil van Dijk', prenom: 'Virgil', poste: 'Défenseur', championnat: 'Premier League' },
-            { nom: 'Frenkie de Jong', prenom: 'Frenkie', poste: 'Milieu de terrain', championnat: 'La Liga' },
-            { nom: 'Memphis Depay', prenom: 'Memphis', poste: 'Attaquant', championnat: 'La Liga' },
-            { nom: 'Georginio Wijnaldum', prenom: 'Georginio', poste: 'Milieu de terrain', championnat: 'Ligue 1' },
-            { nom: 'Donyell Malen', prenom: 'Donyell', poste: 'Attaquant', championnat: 'Bundesliga' }
-        ];
-    } else if (pays === 'Portugal') {
-        return [
-            { nom: 'Cristiano Ronaldo', prenom: 'Cristiano', poste: 'Attaquant', championnat: 'Premier League' },
-            { nom: 'Bruno Fernandes', prenom: 'Bruno', poste: 'Milieu de terrain', championnat: 'Premier League' },
-            { nom: 'Diogo Jota', prenom: 'Diogo', poste: 'Attaquant', championnat: 'Premier League' },
-            { nom: 'Ruben Dias', prenom: 'Ruben', poste: 'Défenseur', championnat: 'Premier League' },
-            { nom: 'Bernardo Silva', prenom: 'Bernardo', poste: 'Milieu de terrain', championnat: 'Premier League' }
-        ];
-    } else if (pays === 'Maroc') {
-        return [
-            { nom: 'Achraf Hakimi', prenom: 'Achraf', poste: 'Défenseur', championnat: 'Ligue 1' },
-            { nom: 'Hakim Ziyech', prenom: 'Hakim', poste: 'Milieu de terrain', championnat: 'Premier League' },
-            { nom: 'Romain Saïss', prenom: 'Romain', poste: 'Défenseur', championnat: 'Premier League' },
-            { nom: 'Yassine Bounou', prenom: 'Yassine', poste: 'Gardien de but', championnat: 'La Liga' },
-            { nom: 'Noussair Mazraoui', prenom: 'Noussair', poste: 'Défenseur', championnat: 'Bundesliga' }
-        ];
-    } else if (pays === 'Angleterre') {
-        return [
-            { nom: 'Harry Kane', prenom: 'Harry', poste: 'Attaquant', championnat: 'Premier League' },
-            { nom: 'Jordan Henderson', prenom: 'Jordan', poste: 'Milieu de terrain', championnat: 'Premier League' },
-            { nom: 'John Stones', prenom: 'John', poste: 'Défenseur', championnat: 'Premier League' },
-            { nom: 'Raheem Sterling', prenom: 'Raheem', poste: 'Attaquant', championnat: 'Premier League' },
-            { nom: 'Dean Henderson', prenom: 'Dean', poste: 'Gardien de but', championnat: 'Premier League' }
-        ];
-    } else if (pays === 'Ecosse') {
-        return [
-            { nom: 'Andrew Robertson', prenom: 'Andrew', poste: 'Défenseur', championnat: 'Premier League' },
-            { nom: 'Kieran Tierney', prenom: 'Kieran', poste: 'Défenseur', championnat: 'Premier League' },
-            { nom: 'John McGinn', prenom: 'John', poste: 'Milieu de terrain', championnat: 'Premier League' },
-            { nom: 'Lyndon Dykes', prenom: 'Lyndon', poste: 'Attaquant', championnat: 'Championship' },
-            { nom: 'David Marshall', prenom: 'David', poste: 'Gardien de but', championnat: 'Championship' }
-        ];
-    } else if (pays === 'Irlande') {
-        return [
-            { nom: 'Shane Duffy', prenom: 'Shane', poste: 'Défenseur', championnat: 'Championship' },
-            { nom: 'Callum Robinson', prenom: 'Callum', poste: 'Attaquant', championnat: 'Premier League' },
-            { nom: 'Enda Stevens', prenom: 'Enda', poste: 'Défenseur', championnat: 'Championship' },
-            { nom: 'Conor Hourihane', prenom: 'Conor', poste: 'Milieu de terrain', championnat: 'Championship' },
-            { nom: 'Mark Travers', prenom: 'Mark', poste: 'Gardien de but', championnat: 'Championship' }
-        ];
+  // Cette méthode récupère les données depuis le fichier JSON dans le dossier 'assets'
+
+  getJSONData(): Observable<any> {
+    const url = './assets/data-group.json'; // Spécifiez le chemin vers le fichier JSON local
+  
+    return this.http.get(url).pipe(
+      tap(data => console.log('Données JSON chargées :', data)),
+      catchError(this.handleError)
+    );
+  }
+
+  // Ajout d'une méthode pour gérer les erreurs
+  private handleError(error: any): Observable<any> {
+    console.error('Une erreur s\'est produite :', error);
+    return throwError('Erreur lors du chargement des données JSON');
+  }
+
+  getArticles(): Observable<any[]> {
+    // Vous devriez implémenter la logique pour obtenir les articles ici à partir de jsonData
+    return this.jsonData ? this.jsonData.articles : [];
+  }
+
+  getJoueursByPays(pays: string): Observable<any[]> {
+    // Vous devriez implémenter la logique pour obtenir les joueurs par pays à partir de jsonData
+    const joueurs = this.jsonData && this.jsonData.joueursByPays ? this.jsonData.joueursByPays[pays] : [];
+    return joueurs ? joueurs : [];
+  }
+
+  getGroupesDePays(): Observable<any[]> {
+    // Vous devriez implémenter la logique pour obtenir les groupes de pays à partir de jsonData
+    return this.jsonData ? this.jsonData.groupesDePays : [];
+  }
+
+  getGroupDetails(groupId: string): Observable<any> {
+    console.log('ID du groupe recherché :', groupId);
+    if (this.jsonData && this.jsonData.groupesDePays) {
+      const group = this.jsonData.groupesDePays.find((groupe: any) => groupe.id === +groupId);
+      console.log('Groupe trouvé :', group);
+      return group ? of(group) : throwError('Groupe non trouvé');
     } else {
-        return [];
+      return throwError('Données JSON non chargées');
     }
-}
+  }
 
+  getGroupeById(id: number) {
+    // Recherche du groupe par son ID
+    return this.jsonData && this.jsonData.groupesDePays ? this.jsonData.groupesDePays.find((groupe: { id: number; }) => groupe.id === id) : null;
+  }
+  
 }

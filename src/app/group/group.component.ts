@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
-import { TitleService } from '../title.service'; // Vous devez importer votre service de titre
 
 @Component({
   selector: 'app-group',
@@ -9,38 +8,24 @@ import { TitleService } from '../title.service'; // Vous devez importer votre se
   styleUrls: ['./group.component.scss']
 })
 export class GroupComponent implements OnInit {
-  groupe: string = '';
-  paysDuGroupe: string[] = [];
+  groupId: string = '0'; // Initialisez avec une valeur par défaut en tant que chaîne
+  groupDetails: any;
+  selectedGroup: any;
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService,
-    private router: Router,
-    private titleService: TitleService
-  ) {} // Un seul constructeur pour injecter tous les services
+    private dataService: DataService
+  ) {}
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.groupe = params['groupe'];
-  
-      // Add this console log to see the value of "groupe"
-      console.log('Value of "groupe":', this.groupe);
-  
-      this.paysDuGroupe = this.getPaysDuGroupe(this.groupe);
-  
-      // Mettez à jour le titre ici en utilisant le service de titre
-      this.titleService.updateTitle('Nouveau titre');
-    });
-  }
-  
-
-  getPaysDuGroupe(groupe: string): string[] {
-    const groupesDePays = this.dataService.getGroupesDePays();
-    const groupeSelectionne = groupesDePays.find((g) => g.nom === groupe);
-    return groupeSelectionne ? groupeSelectionne.pays : [];
-  }
-
-  onPaysSelected(pays: string) {
-    this.router.navigate(['/joueurs', pays]);
+    const idGroupeA = 1; // L'ID du "Groupe A"
+    const groupe = this.dataService.getGroupeById(idGroupeA);
+    const resolvedData = this.route.snapshot.data['resolvedData'];
+    if (groupe) {
+      this.selectedGroup = groupe;
+      // Autres actions à effectuer avec le groupe
+    } else {
+      console.error('Groupe non trouvé');
+    }
   }
 }

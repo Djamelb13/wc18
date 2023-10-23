@@ -1,11 +1,12 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { DataService } from '../data.service';
 import { Observable, Subscription } from 'rxjs';
-import { TitleService } from '../title.service';
+import { PageTitleService } from '../title.service';
 import { ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,12 @@ import { Location } from '@angular/common';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  jsonData: any;
+  titreDuGroupeSelectionne: string = "";
   title!: string;
   titreDuGroupeOuPays!: string;
   titreDuGroupeOuPays$!: Observable<string>;
+  groupesDePays: any[] = [];
   @Input() isHome: boolean;
   selectedGroupe: any;
   @ViewChild(MatMenuTrigger) trigger?: MatMenuTrigger;
@@ -25,63 +29,68 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private previousSelectedGroup!: string;
 
   constructor(
+    private http: HttpClient,
     private router: Router,
     private dataService: DataService,
-    private titleService: TitleService,
+    private titleService: PageTitleService,
     private location: Location
   ) {
     this.isHome = false;
     this.titreSubscription = new Subscription();
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentUrl = this.router.url;
+        console.log('URL de la page :', currentUrl); // Ajout d'un log pour l'URL
+        const pageTitle = this.getTitleForRoute(currentUrl);
+        console.log('Titre de la page basé sur l\'URL :', pageTitle); // Ajout d'un log pour le titre
+        this.titleService.setTitle(pageTitle);
+      }
+    });
   }
 
   ngOnInit() {
-    console.log('ngOnInit called');
-    this.titreSubscription = this.dataService.titreDuGroupeOuPays$.subscribe((titre: string) => {
-      console.log('Titre mis à jour:', titre);
-      this.titreDuGroupeOuPays = titre;
-      this.titleService.setTitle(`Votre titre personnalisé - ${titre}`);
+    this.dataService.getJSONData().subscribe(data => {
+      this.jsonData = data;
+      this.groupesDePays = data;
+      console.log('Données chargées :', this.jsonData); // Ajout d'un log pour les données
+      this.titleService.setTitle('Titre initial de la page');
     });
   }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy called');
     this.titreSubscription.unsubscribe();
   }
 
-  groupesDePays = this.dataService.getGroupesDePays();
-
-  onGroupSelected(selectedValue: string) {
-    this.pathHistory.push(this.titreDuGroupeOuPays);
-
-    const groupeSelectionne = selectedValue;
-    this.dataService.updateTitreDuGroupeOuPays(groupeSelectionne);
-    this.updateTitle(groupeSelectionne);
-    this.router.navigate(['/group', groupeSelectionne]);
-  }
-
-  goBack() {
-    console.log('goBack called');
-    if (this.pathHistory.length > 0) {
-      const previousPath = this.pathHistory.pop();
-      if (previousPath) {
-        this.dataService.updateTitreDuGroupeOuPays(previousPath);
-        this.updateTitle(previousPath);
-      } else {
-        console.log('No previous path available.');
+  onGroupSelected(nom: string) {
+    if (this.jsonData) {
+      const groupeSelectionne = this.jsonData.find((groupe: any) => groupe.nom === nom);
+      console.log('Groupe sélectionné :', groupeSelectionne); // Ajout d'un log pour le groupe sélectionné
+      if (groupeSelectionne) {
+        this.selectedGroupe = groupeSelectionne;
+        this.titreDuGroupeSelectionne = groupeSelectionne.nom;
+        this.titleService.updateTitle('Groupe ' + groupeSelectionne.nom);
+        console.log('Titre du groupe sélectionné :', this.titreDuGroupeSelectionne); // Ajout d'un log pour le titre du groupe sélectionné
+        this.router.navigate(['/group', nom]);
+        console.log('Navigation vers la route du groupe :', nom); // Ajout d'un log pour la navigation
       }
-    } else {
-      console.log('No previous path available.');
-      this.location.back(); // Utilisez la méthode back() de Location pour la navigation de retour.
     }
   }
 
+  getTitleForRoute(currentUrl: string): string {
+    let pageTitle = 'Default Page Title';
 
-  private updateTitle(newTitle: string) {
-    this.titleService.setTitle(`Votre titre personnalisé - ${newTitle}`);
-    console.log(`Votre titre personnalisé - ${newTitle}`);
+    if (currentUrl === '/home') {
+      pageTitle = 'Home Page';
+    } else if (currentUrl === '/about') {
+      pageTitle = 'About Page';
+    }
+
+    return pageTitle;
   }
 
-  navigateToHome() {
-    this.router.navigate(['/home']);
+  goBack() {
+    this.location.back();
+    console.log('Retour en arrière dans l\'historique du navigateur.'); // Ajout d'un log pour le retour en arrière
   }
 }

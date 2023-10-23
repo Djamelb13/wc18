@@ -1,0 +1,466 @@
+[
+    {
+        "id": 1,
+        "nom": "Groupe A",
+        "pays": [
+            {
+                "nom": "France",
+                "joueurs": [
+                    {
+                        "id": 1,
+                        "nom": "Kylian Mbappé",
+                        "prenom": "Kylian",
+                        "poste": "Attaquant",
+                        "championnat": "Ligue 1"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Antoine Griezmann",
+                        "prenom": "Antoine",
+                        "poste": "Attaquant",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "N'Golo Kanté",
+                        "prenom": "N'Golo",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Raphael Varane",
+                        "prenom": "Raphael",
+                        "poste": "Défenseur",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 5,
+                        "nom": "Hugo Lloris",
+                        "prenom": "Hugo",
+                        "poste": "Gardien de but",
+                        "championnat": "Premier League"
+                    }
+                ]
+            },
+            {
+                "nom": "Belgique",
+                "joueurs": [
+                    {
+                        "id": 6,
+                        "nom": "Eden Hazard",
+                        "prenom": "Eden",
+                        "poste": "Attaquant",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 7,
+                        "nom": "Kevin De Bruyne",
+                        "prenom": "Kevin",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 8,
+                        "nom": "Thibaut Courtois",
+                        "prenom": "Thibaut",
+                        "poste": "Gardien de but",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 9,
+                        "nom": "Romelu Lukaku",
+                        "prenom": "Romelu",
+                        "poste": "Attaquant",
+                        "championnat": "Serie A"
+                    },
+                    {
+                        "id": 10,
+                        "nom": "Axel Witsel",
+                        "prenom": "Axel",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Bundesliga"
+                    }
+                ]
+            },
+            {
+                "nom": "Espagne",
+                "joueurs": [
+                    {
+                        "id": 11,
+                        "nom": "Sergio Ramos",
+                        "prenom": "Sergio",
+                        "poste": "Défenseur",
+                        "championnat": "Ligue 1"
+                    },
+                    {
+                        "id": 12,
+                        "nom": "Sergio Busquets",
+                        "prenom": "Sergio",
+                        "poste": "Milieu de terrain",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 13,
+                        "nom": "Gerard Piqué",
+                        "prenom": "Gerard",
+                        "poste": "Défenseur",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 14,
+                        "nom": "Jordi Alba",
+                        "prenom": "Jordi",
+                        "poste": "Défenseur",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 15,
+                        "nom": "Isco",
+                        "prenom": "Isco",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Serie A"
+                    }
+                ]
+            },
+            {
+                "nom": "Italie",
+                "joueurs": [
+                    {
+                        "id": 16,
+                        "nom": "Giorgio Chiellini",
+                        "prenom": "Giorgio",
+                        "poste": "Défenseur",
+                        "championnat": "Serie A"
+                    },
+                    {
+                        "id": 17,
+                        "nom": "Leonardo Bonucci",
+                        "prenom": "Leonardo",
+                        "poste": "Défenseur",
+                        "championnat": "Serie A"
+                    },
+                    {
+                        "id": 18,
+                        "nom": "Marco Verratti",
+                        "prenom": "Marco",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Ligue 1"
+                    },
+                    {
+                        "id": 19,
+                        "nom": "Ciro Immobile",
+                        "prenom": "Ciro",
+                        "poste": "Attaquant",
+                        "championnat": "Serie A"
+                    },
+                    {
+                        "id": 20,
+                        "nom": "Gianluigi Donnarumma",
+                        "prenom": "Gianluigi",
+                        "poste": "Gardien de but",
+                        "championnat": "Serie A"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nom": "Groupe B",
+        "pays": [
+            {
+                "nom": "Allemagne",
+                "joueurs": [
+                    {
+                        "id": 1,
+                        "nom": "Toni Kroos",
+                        "prenom": "Toni",
+                        "poste": "Milieu de terrain",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Joshua Kimmich",
+                        "prenom": "Joshua",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Bundesliga"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Manuel Neuer",
+                        "prenom": "Manuel",
+                        "poste": "Gardien de but",
+                        "championnat": "Bundesliga"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Leroy Sané",
+                        "prenom": "Leroy",
+                        "poste": "Attaquant",
+                        "championnat": "Bundesliga"
+                    },
+                    {
+                        "id": 5,
+                        "nom": "Mats Hummels",
+                        "prenom": "Mats",
+                        "poste": "Défenseur",
+                        "championnat": "Bundesliga"
+                    }
+                ]
+            },
+            {
+                "nom": "Pays-Bas",
+                "joueurs": [
+                    {
+                        "id": 6,
+                        "nom": "Virgil van Dijk",
+                        "prenom": "Virgil",
+                        "poste": "Défenseur",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 7,
+                        "nom": "Frenkie de Jong",
+                        "prenom": "Frenkie",
+                        "poste": "Milieu de terrain",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 8,
+                        "nom": "Memphis Depay",
+                        "prenom": "Memphis",
+                        "poste": "Attaquant",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 9,
+                        "nom": "Georginio Wijnaldum",
+                        "prenom": "Georginio",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Ligue 1"
+                    },
+                    {
+                        "id": 10,
+                        "nom": "Donyell Malen",
+                        "prenom": "Donyell",
+                        "poste": "Attaquant",
+                        "championnat": "Bundesliga"
+                    }
+                ]
+            },
+            {
+                "nom": "Portugal",
+                "joueurs": [
+                    {
+                        "id": 11,
+                        "nom": "Cristiano Ronaldo",
+                        "prenom": "Cristiano",
+                        "poste": "Attaquant",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 12,
+                        "nom": "Bruno Fernandes",
+                        "prenom": "Bruno",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 13,
+                        "nom": "Diogo Jota",
+                        "prenom": "Diogo",
+                        "poste": "Attaquant",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 14,
+                        "nom": "Ruben Dias",
+                        "prenom": "Ruben",
+                        "poste": "Défenseur",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 15,
+                        "nom": "Bernardo Silva",
+                        "prenom": "Bernardo",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Premier League"
+                    }
+                ]
+            },
+            {
+                "nom": "Maroc",
+                "joueurs": [
+                    {
+                        "id": 16,
+                        "nom": "Achraf Hakimi",
+                        "prenom": "Achraf",
+                        "poste": "Défenseur",
+                        "championnat": "Ligue 1"
+                    },
+                    {
+                        "id": 17,
+                        "nom": "Hakim Ziyech",
+                        "prenom": "Hakim",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 18,
+                        "nom": "Romain Saïss",
+                        "prenom": "Romain",
+                        "poste": "Défenseur",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 19,
+                        "nom": "Yassine Bounou",
+                        "prenom": "Yassine",
+                        "poste": "Gardien de but",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 20,
+                        "nom": "Noussair Mazraoui",
+                        "prenom": "Noussair",
+                        "poste": "Défenseur",
+                        "championnat": "Bundesliga"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nom": "Groupe C",
+        "pays": [
+            {
+                "nom": "Angleterre",
+                "joueurs": [
+                    {
+                        "id": 1,
+                        "nom": "Harry Kane",
+                        "prenom": "Harry",
+                        "poste": "Attaquant",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Jordan Henderson",
+                        "prenom": "Jordan",
+                        "poste": "Milieu de terrain",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "John Stones",
+                        "prenom": "John",
+                        "poste": "Défenseur",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Raheem Sterling",
+                        "prenom": "Raheem",
+                        "poste": "Attaquant",
+                        "championnat": "Premier League"
+                    },
+                    {
+                        "id": 5,
+                        "nom": "Dean Henderson",
+                        "prenom": "Dean",
+                        "poste": "Gardien de but",
+                        "championnat": "Premier League"
+                    }
+                ]
+            },
+            {
+                "nom": "Écosse",
+                "joueurs": [
+                    {
+                        "id": 1,
+                        "nom": "Joueur Écossais 1",
+                        "prenom": "Prénom 1",
+                        "poste": "Poste 1",
+                        "championnat": "Championnat 1"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Joueur Écossais 2",
+                        "prenom": "Prénom 2",
+                        "poste": "Poste 2",
+                        "championnat": "Championnat 2"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Joueur Écossais 3",
+                        "prenom": "Prénom 3",
+                        "poste": "Poste 3",
+                        "championnat": "Championnat 3"
+                    }
+                ]
+            },
+            {
+                "nom": "Irlande",
+                "joueurs": [
+                    {
+                        "id": 1,
+                        "nom": "Joueur Irlandais 1",
+                        "prenom": "Prénom 1",
+                        "poste": "Poste 1",
+                        "championnat": "Championnat 1"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Joueur Irlandais 2",
+                        "prenom": "Prénom 2",
+                        "poste": "Poste 2",
+                        "championnat": "Championnat 2"
+                    }
+                ]
+            },
+            {
+                "nom": "Japon",
+                "joueurs": [
+                    {
+                        "id": 1,
+                        "nom": "Shinji Kagawa",
+                        "prenom": "Shinji",
+                        "poste": "Milieu de terrain",
+                        "championnat": "J. League"
+                    },
+                    {
+                        "id": 2,
+                        "nom": "Yoshinori Muto",
+                        "prenom": "Yoshinori",
+                        "poste": "Attaquant",
+                        "championnat": "La Liga"
+                    },
+                    {
+                        "id": 3,
+                        "nom": "Maya Yoshida",
+                        "prenom": "Maya",
+                        "poste": "Défenseur",
+                        "championnat": "Serie A"
+                    },
+                    {
+                        "id": 4,
+                        "nom": "Hiroki Sakai",
+                        "prenom": "Hiroki",
+                        "poste": "Défenseur",
+                        "championnat": "Ligue 1"
+                    },
+                    {
+                        "id": 5,
+                        "nom": "Eiji Kawashima",
+                        "prenom": "Eiji",
+                        "poste": "Gardien de but",
+                        "championnat": "Belgian First Division A"
+                    }
+                ]
+            }
+        ]
+    }
+    
+]

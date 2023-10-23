@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { ListeDePaysComponent } from './liste-de-pays/liste-de-pays.component';
 import { DataService } from './data.service';
 import { JoueursComponent } from './joueurs/joueurs.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { JoueursComponent } from './joueurs/joueurs.component';
   ],
   imports: [
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    HttpClientModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
