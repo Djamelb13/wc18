@@ -2,14 +2,12 @@
 
 <div class="container-group">
   <div fxFlex="60" fxLayoutAlign="center center">
-    <mat-table [dataSource]="groupDetails" style="max-width: 800px;">
+    <mat-table [dataSource]="selectedGroup?.pays" style="max-width: 800px;">
       <!-- Colonne pour le nom du pays -->
       <ng-container matColumnDef="pays">
-        <mat-header-cell *matHeaderCellDef>{{ groupDetails?.nom }}</mat-header-cell>
-        <mat-cell *matCellDef="let pays">{{ pays }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef>Nom du pays</mat-header-cell>
+        <mat-cell *matCellDef="let pays">{{ pays.nom }}</mat-cell>
       </ng-container>
-      
-      
 
       <!-- Colonne pour les liens vers la liste de joueurs -->
       <ng-container matColumnDef="joueurs">

@@ -1,72 +1,90 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+
+interface Joueur {
+  id : number;
+  nom: string;
+  prenom : string;
+}
+interface Pays {
+  nom : string;
+  joueurs: Joueur [];
+}
+interface Group {
+  id : number;
+  nom: string;
+  pays : Pays [];
+  
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  getData(): Observable<any> {
-    throw new Error('Method not implemented.');
-  }
-  private jsonData: any;
+  private jsonData$: Observable<any>;
 
   constructor(private http: HttpClient) {
-    // Chargez les données JSON depuis le fichier 'data-group.json' lors de l'initialisation du service
-    this.getJSONData().subscribe((data) => {
-      this.jsonData = data;
-      console.log('Données JSON chargées :', this.jsonData);
-    });
+    this.jsonData$ = this.getJSONData();
   }
 
-  // Cette méthode récupère les données depuis le fichier JSON dans le dossier 'assets'
+  public getJSONData(): Observable<any> {
+    const url = 'http://localhost:4200/assets/data-group.json';
+    console.log('Fetching JSON data from URL:', url);
 
-  getJSONData(): Observable<any> {
-    const url = './assets/data-group.json'; // Spécifiez le chemin vers le fichier JSON local
-  
     return this.http.get(url).pipe(
-      tap(data => console.log('Données JSON chargées :', data)),
       catchError(this.handleError)
     );
   }
 
-  // Ajout d'une méthode pour gérer les erreurs
   private handleError(error: any): Observable<any> {
-    console.error('Une erreur s\'est produite :', error);
-    return throwError('Erreur lors du chargement des données JSON');
+    console.error('An error occurred:', error);
+    return throwError(() => new Error('Error loading JSON data'));
   }
 
   getArticles(): Observable<any[]> {
-    // Vous devriez implémenter la logique pour obtenir les articles ici à partir de jsonData
-    return this.jsonData ? this.jsonData.articles : [];
+    return this.jsonData$.pipe(
+      map((data: any) => data.articles || [])
+    );
   }
 
-  getJoueursByPays(pays: string): Observable<any[]> {
-    // Vous devriez implémenter la logique pour obtenir les joueurs par pays à partir de jsonData
-    const joueurs = this.jsonData && this.jsonData.joueursByPays ? this.jsonData.joueursByPays[pays] : [];
-    return joueurs ? joueurs : [];
-  }
+  //getJoueursByPays(payss: string): Observable<any[]> {
+    //return this.jsonData$.pipe(
+      //map((data: any) => (data.joueursByPays && data.joueursByPays[pays]) || [])
+    //);
+  //}
 
-  getGroupesDePays(): Observable<any[]> {
-    // Vous devriez implémenter la logique pour obtenir les groupes de pays à partir de jsonData
-    return this.jsonData ? this.jsonData.groupesDePays : [];
+  getGroupesDePays(paysName: string): Observable<Pays | undefined> {
+    return this.jsonData$.pipe(
+      map((data: Pays[]) => {
+        console.log('Données brutes :', data);
+        const groupeTrouvé = data.find(p => p.nom === paysName);
+        console.log('Groupe trouvé :', groupeTrouvé);
+        return groupeTrouvé;
+      })
+    );
   }
+  
+  
 
-  getGroupDetails(groupId: string): Observable<any> {
-    console.log('ID du groupe recherché :', groupId);
-    if (this.jsonData && this.jsonData.groupesDePays) {
-      const group = this.jsonData.groupesDePays.find((groupe: any) => groupe.id === +groupId);
-      console.log('Groupe trouvé :', group);
-      return group ? of(group) : throwError('Groupe non trouvé');
-    } else {
-      return throwError('Données JSON non chargées');
-    }
+  getGroupDetails(groupId: number): Observable<any> {
+    return this.jsonData$.pipe(
+      map((data: Group []) => {
+        return data.find(g => g.id === groupId)
+        // const group = (data.pays|| []).find((groupe: any) => groupe.id === +groupId);
+        // if (group) {
+        //   return group;
+        // } else {
+        //   throw new Error('Group not found');
+        // }
+      })
+    );
   }
 
   getGroupeById(id: number) {
-    // Recherche du groupe par son ID
-    return this.jsonData && this.jsonData.groupesDePays ? this.jsonData.groupesDePays.find((groupe: { id: number; }) => groupe.id === id) : null;
+    return this.jsonData$.pipe(
+      map((data: any) => (data.groupesDePays || []).find((groupe: { id: number }) => groupe.id === id))
+    );
   }
-  
 }

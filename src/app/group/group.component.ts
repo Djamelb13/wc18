@@ -5,11 +5,10 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
-  styleUrls: ['./group.component.scss']
+  styleUrls: ['./group.component.scss'],
+
 })
 export class GroupComponent implements OnInit {
-  groupId: string = '0'; // Initialisez avec une valeur par défaut en tant que chaîne
-  groupDetails: any;
   selectedGroup: any;
 
   constructor(
@@ -18,14 +17,19 @@ export class GroupComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const idGroupeA = 1; // L'ID du "Groupe A"
-    const groupe = this.dataService.getGroupeById(idGroupeA);
-    const resolvedData = this.route.snapshot.data['resolvedData'];
-    if (groupe) {
-      this.selectedGroup = groupe;
-      // Autres actions à effectuer avec le groupe
-    } else {
-      console.error('Groupe non trouvé');
-    }
+    this.route.params.subscribe(params => {
+      const groupId = +params['id'];
+      console.log(params);
+      this.dataService.getGroupDetails(Number(groupId)).subscribe({
+        next: group => {
+          this.selectedGroup = group;
+          console.log('ce groupe : ' + group.nom);
+
+        },
+        error: error => {
+          console.error('Error retrieving the group:', error);
+        }
+      });
+    });
   }
 }

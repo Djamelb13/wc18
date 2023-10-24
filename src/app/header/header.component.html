@@ -11,9 +11,11 @@
 
   <mat-menu #menu="matMenu">
 
-<ng-container *ngFor="let groupe of groupesDePays">
-  <button mat-menu-item (click)="onGroupSelected(groupe.nom)">{{ groupe.nom }}</button>
-</ng-container>
+    <ng-container *ngFor="let groupe of groupesDePays">
+      <button mat-menu-item [routerLink]="['/group', groupe.id]">{{ groupe.nom }}</button>
+    </ng-container>
+    
+    
 
 
   </mat-menu>

@@ -4,7 +4,7 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-joueurs',
   templateUrl: './joueurs.component.html',
-  styleUrls: ['./joueurs.component.css']
+  styleUrls: ['./joueurs.component.scss']
 })
 export class JoueursComponent implements OnInit {
   joueurs: any[] = []; // Déclarez le type approprié pour vos joueurs
@@ -13,8 +13,8 @@ export class JoueursComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.dataService.getJoueursByPays(this.pays).subscribe((data: any[]) => {
-      this.joueurs = data;
-    });
+    //this.dataService.getJoueursByPays(this.pays).subscribe((data: any[]) => {
+      //this.joueurs = data;
+    //});
   }
 }
