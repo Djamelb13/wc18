@@ -67,32 +67,48 @@ export class DataService {
     );
   }
 
-  
-  getTitleId(titreGroupe: string): Observable<Group | undefined> {
+  getPaysDetails(paysDetails: Pays): Observable<Pays | undefined> {
     return this.jsonData$.pipe(
-      map((data: Group[]) => {
-        const groupe = data.find(gr => gr.nom === titreGroupe);
-        console.log(groupe);
-        return groupe;
+      map((data: Group[]) => { // Notez le changement de type de données ici
+        console.log(data);
+        console.log('a', paysDetails);
+        console.log('b', paysDetails.nom);
+        
+        const groupe = data.find(group => {
+          const pays = group.pays.find(p => p.nom === paysDetails.nom);
+          if (pays) {
+            console.log('Pays trouvé dans le groupe :', pays);
+            return true;
+          }
+          return false;
+        });
+  
+        if (groupe) {
+          return groupe.pays.find(p => p.nom === paysDetails.nom);
+        } else {
+          console.log('Pays non trouvé.');
+          return undefined;
+        }
       })
     );
   }
+  
+  
+  
   
   
 
   getGroupDetails(groupId: number): Observable<any> {
     return this.jsonData$.pipe(
       map((data: Group []) => {
-        return data.find(g => g.id === groupId)
-        // const group = (data.pays|| []).find((groupe: any) => groupe.id === +groupId);
-        // if (group) {
-        //   return group;
-        // } else {
-        //   throw new Error('Group not found');
-        // }
+        console.log('Données reçues :', data);
+        const groupFound = data.find(g => g.id === groupId);
+        console.log('Groupe trouvé :', groupFound);
+        return groupFound;
       })
     );
   }
+  
 
   getGroupeById(id: number) {
     return this.jsonData$.pipe(

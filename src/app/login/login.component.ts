@@ -1,24 +1,27 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  styles: [
-    `
-    :host {
-      background-image:url('../../assets/img/927090.jpg');
-      background-size: cover; /* Pour adapter l'image à la taille de l'écran */
-  background-position: center; /* Pour centrer l'image */
-  /* Autres styles */
-  height: 100vh; /* Pour que le composant occupe toute la hauteur de l'écran */
-  display: flex; /* Pour centrer le contenu verticalement */
-  justify-content: center; /* Pour centrer le contenu horizontalement */
-  align-items: center; /* Pour centrer le contenu verticalement */
-    }
-    `
-  ]
 })
 export class LoginComponent {
+  username: string = '';
+  password: string = '';
+  
+  constructor(private router: Router, private snackBar: MatSnackBar) {}
 
+  authenticate() {
+    if (this.username === 'nacer@devid.com' && this.password === 'FutbalL2018') {
+      // Authentification réussie, redirigez l'utilisateur vers la page d'accueil
+      this.router.navigate(['/home']);
+    } else {
+      // Authentification échouée, affichez une alerte
+      this.snackBar.open('Mauvais nom d\'utilisateur ou mauvais mot de passe', 'Fermer', {
+        duration: 3000,
+      });
+    }
+  }
 }

@@ -24,3 +24,13 @@
 .form-content button {
   margin-top: 16px;
 }
+:host {
+  background-image:url('../../assets/img/927090.jpg');
+  background-size: cover; 
+background-position: center; /* Pour centrer l'image */
+
+height: 100vh; /* Pour que le composant occupe toute la hauteur de l'écran */
+display: flex; /* Pour centrer le contenu verticalement */
+justify-content: center; /* Pour centrer le contenu horizontalement */
+align-items: center; /* Pour centrer le contenu verticalement */
+}

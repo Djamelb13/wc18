@@ -9,7 +9,7 @@ import { DataService, Group } from '../data.service';
 
 })
 export class GroupComponent implements OnInit {
-  selectedGroup!: Group;
+  selectedGroup: Group | undefined;
 
   constructor(
     private route: ActivatedRoute,

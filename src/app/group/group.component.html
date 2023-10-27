@@ -1,8 +1,8 @@
-<app-header [title]= "selectedGroup.nom"></app-header>
+<app-header *ngIf="selectedGroup" [title]="selectedGroup.nom"></app-header>
 
 <div class="container-group">
   <div fxFlex="60" fxLayoutAlign="center center">
-    <mat-table [dataSource]="selectedGroup.pays" style="max-width: 800px;">
+    <mat-table *ngIf="selectedGroup" [dataSource]="selectedGroup.pays" style="max-width: 800px;">
       <!-- Colonne pour le nom du pays -->
       <ng-container matColumnDef="pays">
         <mat-header-cell *matHeaderCellDef>Nom du pays</mat-header-cell>
@@ -13,7 +13,7 @@
       <ng-container matColumnDef="joueurs">
         <mat-header-cell *matHeaderCellDef>Joueurs</mat-header-cell>
         <mat-cell *matCellDef="let pays">
-          <a [routerLink]="['/joueurs', pays]">Voir les joueurs</a>
+          <a [routerLink]="['/liste-de-pays', pays]">Voir les joueurs</a>
         </mat-cell>
       </ng-container>
 

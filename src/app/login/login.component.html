@@ -1,16 +1,13 @@
-
 <div class="form-content" fxLayout="column" fxLayoutAlign="center center">
-<mat-card class="form-login">
-  <div class="form-content">
-    <mat-form-field class="example-full-width">
-      <input matInput type="text" placeholder="Nom d'utilisateur">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <input matInput type="password" placeholder="Mot de passe">
-    </mat-form-field>
-    <button mat-raised-button color="primary" routerLink="/home">S'identifier</button>
-  </div>
-</mat-card>
-
-
+  <mat-card class="form-login">
+    <div class="form-content">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Nom d'utilisateur" [(ngModel)]="username">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="Mot de passe" [(ngModel)]="password">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="authenticate()">S'identifier</button>
+    </div>
+  </mat-card>
 </div>
