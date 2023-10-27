@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../data.service';
+import { DataService, Group } from '../data.service';
 
 @Component({
   selector: 'app-group',
@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 
 })
 export class GroupComponent implements OnInit {
-  selectedGroup: any;
+  selectedGroup!: Group;
 
   constructor(
     private route: ActivatedRoute,

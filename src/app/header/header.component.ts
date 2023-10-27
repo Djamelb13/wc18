@@ -16,7 +16,6 @@ import { HttpClient } from '@angular/common/http';
 export class HeaderComponent implements OnInit, OnDestroy {
   jsonData: any;
   titreDuGroupeSelectionne: string = '';
-  title: string = '';
   titreDuGroupeOuPays: string = '';
   groupeSelectionne: string = '';
   titreDuGroupeOuPays$!: Observable<string>;
@@ -77,7 +76,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
       
   
-    
+    @Input() title = '';
 
   
 

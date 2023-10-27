@@ -1,8 +1,8 @@
-<app-header></app-header>
+<app-header [title]= "selectedGroup.nom"></app-header>
 
 <div class="container-group">
   <div fxFlex="60" fxLayoutAlign="center center">
-    <mat-table [dataSource]="selectedGroup?.pays" style="max-width: 800px;">
+    <mat-table [dataSource]="selectedGroup.pays" style="max-width: 800px;">
       <!-- Colonne pour le nom du pays -->
       <ng-container matColumnDef="pays">
         <mat-header-cell *matHeaderCellDef>Nom du pays</mat-header-cell>

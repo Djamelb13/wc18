@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
+
 interface Joueur {
   id : number;
   nom: string;
@@ -12,7 +13,7 @@ interface Pays {
   nom : string;
   joueurs: Joueur [];
 }
-interface Group {
+export interface Group {
   id : number;
   nom: string;
   pays : Pays [];
@@ -62,6 +63,17 @@ export class DataService {
         const groupeTrouvé = data.find(p => p.nom === paysName);
         console.log('Groupe trouvé :', groupeTrouvé);
         return groupeTrouvé;
+      })
+    );
+  }
+
+  
+  getTitleId(titreGroupe: string): Observable<Group | undefined> {
+    return this.jsonData$.pipe(
+      map((data: Group[]) => {
+        const groupe = data.find(gr => gr.nom === titreGroupe);
+        console.log(groupe);
+        return groupe;
       })
     );
   }
