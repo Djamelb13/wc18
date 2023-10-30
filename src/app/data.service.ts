@@ -4,12 +4,12 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 
-interface Joueur {
+export interface Joueur {
   id : number;
   nom: string;
   prenom : string;
 }
-interface Pays {
+export interface Pays {
   nom : string;
   joueurs: Joueur [];
 }
@@ -69,22 +69,19 @@ export class DataService {
 
   getPaysDetails(paysDetails: Pays): Observable<Pays | undefined> {
     return this.jsonData$.pipe(
-      map((data: Group[]) => { // Notez le changement de type de données ici
-        console.log(data);
-        console.log('a', paysDetails);
-        console.log('b', paysDetails.nom);
-        
+      map((data: Group[]) => {
+        console.log('Data reçu depuis jsonData$', data); // Ajout d'un log pour afficher les données reçues
+  
         const groupe = data.find(group => {
           const pays = group.pays.find(p => p.nom === paysDetails.nom);
-          if (pays) {
-            console.log('Pays trouvé dans le groupe :', pays);
-            return true;
-          }
-          return false;
+          console.log('Pays dans le groupe', pays); // Log pour afficher le pays en cours de recherche
+          return pays !== undefined;
         });
   
         if (groupe) {
-          return groupe.pays.find(p => p.nom === paysDetails.nom);
+          const pays = groupe.pays.find(p => p.nom === paysDetails.nom);
+          console.log('Pays trouvé :', pays); // Log pour afficher le pays trouvé
+          return pays;
         } else {
           console.log('Pays non trouvé.');
           return undefined;
@@ -92,6 +89,8 @@ export class DataService {
       })
     );
   }
+  
+  
   
   
   

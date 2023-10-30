@@ -13,7 +13,7 @@
       <ng-container matColumnDef="joueurs">
         <mat-header-cell *matHeaderCellDef>Joueurs</mat-header-cell>
         <mat-cell *matCellDef="let pays">
-          <a [routerLink]="['/liste-de-pays', pays]">Voir les joueurs</a>
+          <a [routerLink]="['/liste-de-pays', pays.nom]">Voir les joueurs</a>
         </mat-cell>
       </ng-container>
 

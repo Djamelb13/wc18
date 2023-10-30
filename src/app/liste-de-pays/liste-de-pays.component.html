@@ -1,20 +1,31 @@
-<mat-table [dataSource]="paysDetails" class="mat-elevation-z8">
-  <!-- Colonne pour le nom du pays -->
+<!-- liste-de-pays.component.html -->
+<app-header [title]='fr'></app-header>
+<!--   -->
+
+<div class="container-group">
+  <div fxFlex="60" fxLayoutAlign="center center">
+<mat-table [dataSource]="joueurDuGroupe" class="mat-elevation-z8">
   <ng-container matColumnDef="nom">
-    <mat-header-cell *matHeaderCellDef>Nom du pays</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.nom }}</mat-cell>
+    <mat-header-cell *matHeaderCellDef> Nom du joueur</mat-header-cell>
+    <mat-cell *matCellDef="let joueur"> {{joueur.nom}} </mat-cell>
+
   </ng-container>
 
-  <!-- Colonne pour les joueurs du pays -->
+
   <ng-container matColumnDef="joueurs">
-    <mat-header-cell *matHeaderCellDef>Joueurs</mat-header-cell>
-    <mat-cell *matCellDef="let element">
-      <ul>
-        <li *ngFor="let joueur of element.joueurs">{{ joueur.nom }}</li>
-      </ul>
-    </mat-cell>
+    <mat-header-cell *matHeaderCellDef> Poste </mat-header-cell>
+    <mat-cell *matCellDef="let joueur"> {{joueur.poste}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="championnat">
+    <mat-header-cell *matHeaderCellDef> Championnat</mat-header-cell>
+    <mat-cell *matCellDef="let joueur"> {{joueur.championnat}} </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+</div>
+</div>
+
+
