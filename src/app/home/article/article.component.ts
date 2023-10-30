@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/data.service'; // Remplacez par le chemin correct
+import { ArticleService, Articles } from 'src/app/article.service';
 
 @Component({
   selector: 'app-article',
@@ -7,13 +7,17 @@ import { DataService } from 'src/app/data.service'; // Remplacez par le chemin c
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-  articles: any[] = []; // Déclarez le type approprié pour vos articles
+  articles: Articles[] = []; 
 
-  constructor(private dataService: DataService) {}
+  constructor(private articleService: ArticleService) {}
 
   ngOnInit() {
-    this.dataService.getArticles().subscribe((data: any[]) => {
+    console.log('test1');
+  this.articleService.getArticles().subscribe((data: Articles[]) => {
       this.articles = data;
+      console.log('test');
+      console.log(this.articles);
+      console.table(data)
     });
   }
 }

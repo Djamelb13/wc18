@@ -12,6 +12,7 @@ export interface Joueur {
 export interface Pays {
   nom : string;
   joueurs: Joueur [];
+  drapeau: string;
 }
 export interface Group {
   id : number;
@@ -19,6 +20,7 @@ export interface Group {
   pays : Pays [];
   
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -44,11 +46,7 @@ export class DataService {
     return throwError(() => new Error('Error loading JSON data'));
   }
 
-  getArticles(): Observable<any[]> {
-    return this.jsonData$.pipe(
-      map((data: any) => data.articles || [])
-    );
-  }
+
 
   //getJoueursByPays(payss: string): Observable<any[]> {
     //return this.jsonData$.pipe(

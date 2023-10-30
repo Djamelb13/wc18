@@ -31,7 +31,8 @@ export class ListeDePaysComponent implements OnInit {
       // Utilisez la fonction getPaysDetails pour obtenir la liste de pays du groupe spécifié.
       this.dataService.getPaysDetails({
         nom: groupeId,
-        joueurs: []
+        joueurs: [],
+        drapeau: ''
       }).subscribe(paysListe => {
         if (paysListe) {
           // Supposons que la liste de pays est stockée dans une propriété "pays" de l'objet Pays.

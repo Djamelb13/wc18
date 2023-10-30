@@ -6,7 +6,8 @@
       <!-- Colonne pour le nom du pays -->
       <ng-container matColumnDef="pays">
         <mat-header-cell *matHeaderCellDef>Nom du pays</mat-header-cell>
-        <mat-cell *matCellDef="let pays">{{ pays.nom }}</mat-cell>
+        <mat-cell *matCellDef="let pays">{{ pays.nom }}
+        </mat-cell>
       </ng-container>
 
       <!-- Colonne pour les liens vers la liste de joueurs -->
@@ -16,10 +17,14 @@
           <a [routerLink]="['/liste-de-pays', pays.nom]">Voir les joueurs</a>
         </mat-cell>
       </ng-container>
+      <ng-container matColumnDef="drapeau">
+        <mat-header-cell *matHeaderCellDef>Drapeau</mat-header-cell>
+        <mat-cell *matCellDef=" let pays" ><span  class=" fi fi-{{pays.drapeau}}"></span></mat-cell>
+      </ng-container>
 
       <!-- Définition des colonnes -->
-      <mat-header-row *matHeaderRowDef="['pays', 'joueurs']"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: ['pays', 'joueurs'];"></mat-row>
+      <mat-header-row *matHeaderRowDef="['pays', 'joueurs', 'drapeau']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['pays', 'joueurs', 'drapeau'];"></mat-row>
     </mat-table>
   </div>
 </div>
