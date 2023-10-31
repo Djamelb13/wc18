@@ -5,10 +5,10 @@ import { catchError, map } from 'rxjs/operators';
 
 
 export interface Articles {
-articles: [];
+  articles: Article[];
 }
 
-export interface articles {
+export interface Article {
   id: number;
   title: string;
   image: string;
@@ -40,11 +40,22 @@ export class ArticleService {
     return throwError(() => new Error('Error loading JSON data'));
   }
 
-  getArticles(): Observable<Articles[]> {
+
+  getArticles(): Observable<Article[]> {
     return this.jsonData2$.pipe(
-      map((data: articles[]) => data.articles // Utilisez data[0].articles pour accéder à la liste des articles
+      map((data: Article[]) => {
+        console.log('Data from service:', data);
+        return data;
+      })
     );
   }
+  
+  
+  
+
+  
+  
+  
   
   
 }

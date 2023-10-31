@@ -17,6 +17,7 @@ import { DataService } from './data.service';
 import { JoueursComponent } from './joueurs/joueurs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleService } from './article.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ArticleService } from './article.service';
   imports: [
     AppRoutingModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [DataService, ArticleService],
   bootstrap: [AppComponent],

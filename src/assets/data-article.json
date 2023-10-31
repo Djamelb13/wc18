@@ -1,36 +1,32 @@
 [
-    {
-        "articles": [
-          {
-            "id": 1,
-            "title": "Article 1",
-            "image": "image1.jpg",
-            "text": "Ceci est le texte de l'article 1."
-          },
-          {
-            "id": 2,
-            "title": "Article 2",
-            "image": "image2.jpg",
-            "text": "Ceci est le texte de l'article 2."
-          },
-          {
-            "id": 3,
-            "title": "Article 3",
-            "image": "image3.jpg",
-            "text": "Ceci est le texte de l'article 3."
-          },
-          {
-            "id": 4,
-            "title": "Article 4",
-            "image": "image4.jpg",
-            "text": "Ceci est le texte de l'article 4."
-          },
-          {
-            "id": 5,
-            "title": "Article 5",
-            "image": "image5.jpg",
-            "text": "Ceci est le texte de l'article 5."
-          }
-        ]
-      }
+  {
+    "id": 1,
+    "title": "La France remporte la Coupe du Monde 2018",
+    "image": "https://img.lemde.fr/2018/07/16/0/0/3500/2423/800/0/75/0/fd27b2a_9150-1xbn9g9.aohe.jpg",
+    "text": "La France a célébré une victoire historique lors de la Coupe du Monde 2018 en Russie. L'équipe nationale française, dirigée par le sélectionneur Didier Deschamps, a impressionné le monde entier avec son jeu solide et ses jeunes talents. Le stade Loujniki de Moscou a été le témoin de la finale mémorable où la France a battu la Croatie 4-2 pour remporter son deuxième titre de la Coupe du Monde. La France a célébré une victoire historique lors de la Coupe du Monde 2018 en Russie. L'équipe nationale française, dirigée par le sélectionneur Didier Deschamps, a impressionné le monde entier avec son jeu solide et ses jeunes talents. Le stade Loujniki de Moscou a été le témoin de la finale mémorable où la France a battu la Croatie 4-2 pour remporter son deuxième titre de la Coupe du Monde. La France a célébré une victoire historique lors de la Coupe du Monde 2018 en Russie. L'équipe nationale française, dirigée par le sélectionneur Didier Deschamps, a impressionné le monde entier avec son jeu solide et ses jeunes talents. Le stade Loujniki de Moscou a été le témoin de la finale mémorable où la France a battu la Croatie 4-2 pour remporter son deuxième titre de la Coupe du Monde.La France a célébré une victoire historique lors de la Coupe du Monde 2018 en Russie. L'équipe nationale française, dirigée par le sélectionneur Didier Deschamps, a impressionné le monde entier avec son jeu solide et ses jeunes talents. Le stade Loujniki de Moscou a été le témoin de la finale mémorable où la France a battu la Croatie 4-2 pour remporter son deuxième titre de la Coupe du Monde.La France a célébré une victoire historique lors de la Coupe du Monde 2018 en Russie. L'équipe nationale française, dirigée par le sélectionneur Didier Deschamps, a impressionné le monde entier avec son jeu solide et ses jeunes talents. Le stade Loujniki de Moscou a été le témoin de la finale mémorable où la France a battu la Croatie 4-2 pour remporter son deuxième titre de la Coupe du Monde.La France a célébré une victoire historique lors de la Coupe du Monde 2018 en Russie. L'équipe nationale française, dirigée par le sélectionneur Didier Deschamps, a impressionné le monde entier avec son jeu solide et ses jeunes talents. Le stade Loujniki de Moscou a été le témoin de la finale mémorable où la France a battu la Croatie 4-2 pour remporter son deuxième titre de la Coupe du Monde."
+  },
+  {
+    "id": 2,
+    "title": "L'exploit de Modric : Meilleur joueur de la Coupe du Monde 2018",
+    "image": "https://imageio.forbes.com/specials-images/dam/imageserve/1025972736/960x0.jpg?format=jpg&width=1440",
+    "text": "Luka Modric, le milieu de terrain croate, a brillé tout au long de la Coupe du Monde 2018. Sa créativité, son contrôle du ballon et sa vision du jeu en ont fait le maître du milieu de terrain. Il a été récompensé du Ballon d'Or de la Coupe du Monde 2018, ce qui en a fait l'un des joueurs les plus marquants du tournoi."
+  },
+  {
+    "id": 3,
+    "title": "Le but de Pavard élu le plus beau de la Coupe du Monde",
+    "image": "https://cdn-s-www.leprogres.fr/images/74237FC3-FC81-4A2A-931C-F8F2F537CCDB/NW_raw/benjamin-pavard-totalise-40-selections-en-equipe-de-france-depuis-sa-premiere-convocation-en-novembre-2017-photo-stephane-guiochon-afp-1636743648.jpg",
+    "text": "Benjamin Pavard, le défenseur français, a marqué un but exceptionnel lors des quarts de finale de la Coupe du Monde 2018 contre l'Argentine. Son tir enroulé depuis l'extérieur de la surface de réparation a été élu le plus beau but du tournoi. Ce but spectaculaire restera longtemps dans les mémoires des fans de football."
+  },
+  {
+    "id": 4,
+    "title": "L'ascension de Kylian Mbappé",
+    "image": "https://s.yimg.com/ny/api/res/1.2/a8z4SkK2hG2q33cEcI7g_Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MDtjZj13ZWJw/https://media.zenfs.com/en/the_independent_635/afd36b3550abc213ae059f977d5877e4",
+    "text": "Kylian Mbappé a été la révélation de la Coupe du Monde 2018. À seulement 19 ans, il a été un élément clé de l'équipe de France. Sa vitesse, ses dribbles et son assurance en ont fait l'un des joueurs les plus excitants du tournoi. Mbappé a également marqué deux buts en finale, devenant ainsi le deuxième adolescent à marquer en finale de la Coupe du Monde, après Pelé en 1958."
+  },
+  {
+    "id": 5,
+    "title": "Le fair-play de la Coupe du Monde 2018",
+    "image": "https://photo.maxifoot.fr/lewandowski-sakai-2.jpg",
+    "text": "La Coupe du Monde 2018 en Russie a été marquée par un excellent fair-play. Les joueurs, les équipes et les fans ont montré un grand respect envers leurs adversaires et les règles du jeu. Il y a eu très peu de cartons rouges, ce qui témoigne de l'esprit sportif qui a régné pendant le tournoi. La Coupe du Monde 2018 restera dans les mémoires non seulement pour son football de haut niveau, mais aussi pour le fair-play exemplaire qui l'a caractérisée.La Coupe du Monde 2018 en Russie a été marquée par un excellent fair-play. Les joueurs, les équipes et les fans ont montré un grand respect envers leurs adversaires et les règles du jeu. Il y a eu très peu de cartons rouges, ce qui témoigne de l'esprit sportif qui a régné pendant le tournoi. La Coupe du Monde 2018 restera dans les mémoires non seulement pour son football de haut niveau, mais aussi pour le fair-play exemplaire qui l'a caractérisée."
+  }
 ]

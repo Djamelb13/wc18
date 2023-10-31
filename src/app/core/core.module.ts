@@ -8,10 +8,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -25,7 +26,6 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     BrowserAnimationsModule,
     FormsModule,
     MatMenuModule,
-    FlexLayoutModule,
     MatTableModule,
     MatPaginatorModule,
     MatSnackBarModule
@@ -40,7 +40,6 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     BrowserAnimationsModule,
     FormsModule,
     MatMenuModule,
-FlexLayoutModule,
 MatTableModule,
 MatPaginatorModule
   ],
