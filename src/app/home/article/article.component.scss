@@ -1,1 +1,6 @@
-.article {max-width: 80vw;}
+.article {
+    max-width: 80vw;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}

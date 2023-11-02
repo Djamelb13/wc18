@@ -18,9 +18,12 @@ import { JoueursComponent } from './joueurs/joueurs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticleService } from './article.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
+import { InfosComponent } from './infos/infos.component';
 
 @NgModule({
   declarations: [
+    
     AppComponent,
     HomeComponent,
     LoginComponent,
@@ -33,8 +36,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     PassionComponent,
     ListeDePaysComponent,
     JoueursComponent,
+    InfosComponent,
   ],
-  imports: [
+  imports: [MatIconModule,
     AppRoutingModule,
     CoreModule,
     HttpClientModule,

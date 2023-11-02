@@ -7,13 +7,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import {MatMenuModule} from '@angular/material/menu';
-
+import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -28,7 +25,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   exports: [
     MatCardModule,
@@ -40,8 +37,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     BrowserAnimationsModule,
     FormsModule,
     MatMenuModule,
-MatTableModule,
-MatPaginatorModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSnackBarModule,
   ],
 })
 export class CoreModule {}

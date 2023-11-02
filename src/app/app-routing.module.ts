@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { GroupComponent } from './group/group.component';
 import { JoueursComponent } from './joueurs/joueurs.component';
 import { ListeDePaysComponent } from './liste-de-pays/liste-de-pays.component';
+import { InfosComponent } from './infos/infos.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'group/:id', component: GroupComponent }, 
   { path: 'joueurs/:pays', component: JoueursComponent },
-  {path : 'liste-de-pays/:id', component: ListeDePaysComponent}
+  {path : 'liste-de-pays/:id', component: ListeDePaysComponent},
+  {path: 'infos', component: InfosComponent}
 ];
 
 @NgModule({
