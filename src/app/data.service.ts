@@ -34,7 +34,7 @@ export class DataService {
 
   public getJSONData(): Observable<any> {
     const url = 'http://localhost:4200/assets/data-group.json';
-    console.log('Fetching JSON data from URL:', url);
+
 
     return this.http.get(url).pipe(
       catchError(this.handleError)

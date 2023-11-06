@@ -40,14 +40,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.titreSubscription = new Subscription();
 
     this.router.events.subscribe((event) => {
-      console.log('Router Event:', event); // Ajout d'un console log pour afficher l'événement de navigation
+     
       if (event instanceof NavigationEnd) {
         this.route.paramMap.subscribe((params) => {
           const groupName = params.get('groupName');
-          console.log('Route Params:', params); // Ajout d'un console log pour afficher les paramètres de la route
-          console.log('Group Name:', groupName); // Ajout d'un console log pour afficher le nom du groupe
+          
           if (groupName !== null) {
-            console.log('Setting Title:', groupName); // Ajout d'un console log pour indiquer le réglage du titre
+           
             this.titleService.setTitle(groupName);
           }
         });
@@ -71,7 +70,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     onGroupSelected(paysName : string) {
       this.groupeSelectionne = paysName;
-      console.log('selection ' + this.groupeSelectionne);
+
       this.titreDuGroupeSelectionne = paysName;
       }
       

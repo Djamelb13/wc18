@@ -13,6 +13,12 @@
 
     <ng-container *ngFor="let groupe of groupesDePays">
       <button mat-menu-item [routerLink]="['/group', groupe.id]">{{ groupe.nom }}</button>
+      
+    </ng-container>
+    <ng-container>
+      <button mat-menu-item [routerLink]="['/formulaire/groupe']">Ajout Groupe</button>
+      <button mat-menu-item [routerLink]="['/formulaire/pays']">Ajout Pays</button>
+      <button mat-menu-item [routerLink]="['/formulaire/joueur']">Ajout Joueur</button>
     </ng-container>
     
     

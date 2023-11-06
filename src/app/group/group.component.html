@@ -1,37 +1,4 @@
-<app-header *ngIf="selectedGroup" [title]="selectedGroup.nom"></app-header>
+<!--<app-header *ngIf="selectedGroup" [title]="selectedGroup.nom"></app-header>-->
+<app-header></app-header>
 
-<div class="container-group">
-  <div fxFlex="60" fxLayoutAlign="center center">
-    <mat-table *ngIf="selectedGroup" [dataSource]="selectedGroup.pays" style="max-width: 800px;">
-      <!-- Colonne pour le bouton de pouce -->
-      <ng-container matColumnDef="like">
-        <mat-header-cell *matHeaderCellDef>Like</mat-header-cell>
-        <mat-cell *matCellDef="let pays">
-          <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
-        </mat-cell>
-      </ng-container>
 
-      <!-- Colonne pour le nom du pays -->
-      <ng-container matColumnDef="pays">
-        <mat-header-cell *matHeaderCellDef>Nom du pays</mat-header-cell>
-        <mat-cell *matCellDef="let pays">{{ pays.nom }}</mat-cell>
-      </ng-container>
-
-      <!-- Colonne pour les liens vers la liste de joueurs -->
-      <ng-container matColumnDef="joueurs">
-        <mat-header-cell *matHeaderCellDef>Joueurs</mat-header-cell>
-        <mat-cell *matCellDef="let pays">
-          <a [routerLink]="['/liste-de-pays', pays.nom]">Voir les joueurs</a>
-        </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="drapeau">
-        <mat-header-cell *matHeaderCellDef>Drapeau</mat-header-cell>
-        <mat-cell *matCellDef="let pays"><span class="fi fi-{{pays.drapeau}}"></span></mat-cell>
-      </ng-container>
-
-      <!-- Définition des colonnes -->
-      <mat-header-row *matHeaderRowDef="['like', 'pays', 'joueurs', 'drapeau']"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: ['like', 'pays', 'joueurs', 'drapeau'];"></mat-row>
-    </mat-table>
-  </div>
-</div>

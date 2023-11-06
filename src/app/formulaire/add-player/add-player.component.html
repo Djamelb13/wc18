@@ -1,0 +1,35 @@
+<h1 class="centered-title">Ajout d'un joueur</h1>
+<mat-form-field class="form-group">
+    <mat-label>Nom du joueur</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field class="form-group">
+    <mat-label>Prénom du joueur</mat-label>
+    <input matInput>
+  </mat-form-field>
+<form [formGroup]="snapForm" (ngSubmit)="onSubmitForm()">
+    <mat-form-field class="form-group">
+        <mat-label>Selectionner un pays</mat-label>
+        <mat-select>
+          <mat-option value="one">France</mat-option>
+          <mat-option value="two">Italie</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+
+      <mat-form-field class="form-group">
+        <mat-label>Poste</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field class="form-group">
+        <mat-label>Championnat</mat-label>
+        <input matInput>
+      </mat-form-field>
+
+
+      
+  
+    <div class="action-buttons">
+      <button mat-raised-button type="submit" (click)="onSubmitForm()">Enregistrer</button>
+    </div>
+  </form>

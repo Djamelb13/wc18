@@ -20,10 +20,14 @@ import { ArticleService } from './article.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { InfosComponent } from './infos/infos.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import { AddGroupeComponent } from './formulaire/add-groupe/add-groupe.component';
+import { AddCountryComponent } from './formulaire/add-country/add-country.component';
+import { AddPlayerComponent } from './formulaire/add-player/add-player.component';
 
 @NgModule({
   declarations: [
-    
     AppComponent,
     HomeComponent,
     LoginComponent,
@@ -37,12 +41,17 @@ import { InfosComponent } from './infos/infos.component';
     ListeDePaysComponent,
     JoueursComponent,
     InfosComponent,
+    FormulaireComponent,
+    AddGroupeComponent,
+    AddCountryComponent,
+    AddPlayerComponent,
   ],
   imports: [MatIconModule,
     AppRoutingModule,
     CoreModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
   ],
   providers: [DataService, ArticleService],
   bootstrap: [AppComponent],

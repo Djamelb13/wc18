@@ -8,6 +8,10 @@ import { GroupComponent } from './group/group.component';
 import { JoueursComponent } from './joueurs/joueurs.component';
 import { ListeDePaysComponent } from './liste-de-pays/liste-de-pays.component';
 import { InfosComponent } from './infos/infos.component';
+import { FormulaireComponent } from './formulaire/formulaire.component';
+import { AddCountryComponent } from './formulaire/add-country/add-country.component';
+import { AddGroupeComponent } from './formulaire/add-groupe/add-groupe.component';
+import { AddPlayerComponent } from './formulaire/add-player/add-player.component';
 
 
 const routes: Routes = [
@@ -18,7 +22,17 @@ const routes: Routes = [
   { path: 'group/:id', component: GroupComponent }, 
   { path: 'joueurs/:pays', component: JoueursComponent },
   {path : 'liste-de-pays/:id', component: ListeDePaysComponent},
-  {path: 'infos', component: InfosComponent}
+  {path: 'infos', component: InfosComponent},
+  {
+    path: 'formulaire',
+    component: FormulaireComponent,
+    children: [
+      { path: 'groupe', component: AddGroupeComponent},
+      { path: 'pays', component: AddCountryComponent },
+      { path: 'joueur', component: AddPlayerComponent}
+    
+    ]
+  }
 ];
 
 @NgModule({

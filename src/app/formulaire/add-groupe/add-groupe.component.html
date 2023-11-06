@@ -1,0 +1,12 @@
+<h1 class="centered-title">Formulaire d'ajout de groupe</h1>
+  
+<form [formGroup]="snapForm" (ngSubmit)="onSubmitForm()">
+  <mat-form-field class="form-group">
+    <mat-label>Titre</mat-label>
+    <input matInput id="title" type="text" formControlName="title">
+  </mat-form-field>
+
+  <div class="action-buttons">
+    <button mat-raised-button type="submit">Enregistrer</button>
+  </div>
+</form>
