@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormDataService } from 'src/app/form-data.service';
+import { FormDataService, Teams} from 'src/app/form-data.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -16,9 +16,12 @@ export class AddGroupeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    
+    console.log('composant groupe chargé');
     this.snapForm = this.formBuilder.group({
       title: [null],
     });
+
   }
 
   onSubmitForm() {

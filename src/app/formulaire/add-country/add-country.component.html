@@ -1,30 +1,23 @@
 <h1 class="centered-title">Affectation d'un pays à un groupe</h1>
-  
+
 <form [formGroup]="snapForm" (ngSubmit)="onSubmitForm()">
-    <mat-form-field class="form-group">
-        <mat-label>Selectionner un pays</mat-label>
-        <mat-select>
-          <mat-option value="one">France</mat-option>
-          <mat-option value="two">Italie</mat-option>
-        </mat-select>
-      </mat-form-field>
-  
-      <mat-form-field class="form-group">
-        <mat-label>Selectionner un groupe</mat-label>
-        <mat-select>
-          <mat-option value="one">Groupe A</mat-option>
-          <mat-option value="two">Groupe B</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field class="form-group">
-        <mat-label>Insérer code drapeau</mat-label>
-        <input matInput>
-      </mat-form-field>
+  <mat-form-field class="form-group">
+    <mat-label>Selectionner un groupe</mat-label>
+    <mat-select formControlName="group">
+      <mat-option *ngFor="let group of groups" [value]="group.name">{{ group.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="form-group">
+    <mat-label>Insérer nom du pays</mat-label>
+    <input matInput formControlName="country">
+  </mat-form-field>
 
+  <mat-form-field class="form-group">
+    <mat-label>Insérer code drapeau</mat-label>
+    <input matInput formControlName="flag">
+  </mat-form-field>
 
-      
-  
-    <div class="action-buttons">
-      <button mat-raised-button type="submit" (click)="onSubmitForm()">Enregistrer</button>
-    </div>
-  </form>
+  <div class="action-buttons">
+    <button mat-raised-button type="submit">Enregistrer</button>
+  </div>
+</form>

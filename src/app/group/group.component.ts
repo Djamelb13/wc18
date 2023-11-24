@@ -32,6 +32,7 @@ export class GroupComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("composant groupe chargé");
     this.route.params.subscribe(params => {
       const groupId = +params['id'];
       console.log(params);

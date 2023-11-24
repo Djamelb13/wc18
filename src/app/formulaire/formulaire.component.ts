@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-formulaire',
@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 
 
-export class FormulaireComponent {
+export class FormulaireComponent implements OnInit {
   a:string = "Formulaire";
+  ngOnInit() {
+    console.log('composant formulaire chargé');
+  }
 }
